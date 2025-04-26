@@ -1,0 +1,32 @@
+{
+    "activities": [
+      {
+        "activity": "Learn a new card trick",
+        "type": "education"
+      },
+      {
+        "activity": "Call a family member you haven't spoken to in a while",
+        "type": "social"
+      },
+      {
+        "activity": "Reorganize your workspace",
+        "type": "diy"
+      },
+      {
+        "activity": "Try a 10-minute yoga session",
+        "type": "recreational"
+      },
+      {
+        "activity": "Cook a meal from a different culture",
+        "type": "cooking"
+      },
+      {
+        "activity": "Write a short story",
+        "type": "creative"
+      },
+      {
+        "activity": "Plant some herbs or flowers",
+        "type": "gardening"
+      }
+    ]
+  }
