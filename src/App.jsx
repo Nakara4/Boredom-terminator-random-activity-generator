@@ -5,11 +5,15 @@ import Auth from "./components/Auth";
 import Button from "./components/Button";
 import ActivityCard from "./components/ActivityCard";
 import Loading from "./components/Loading";
+import { ThemeContext } from './context/ThemeContext'
+import { useContext } from 'react';
 
 export default function App() {
  
   const [user, setUser] = useState(null);
-  
+
+  const { isDark, toggleTheme } = useContext(ThemeContext);
+
   
   const [activity, setActivity] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -89,17 +93,24 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       
 
-<header className="p-4 bg-teal shadow-lg flex justify-between items-center">
-  <h1 className="text-2xl font-bold text-off-white">
-    🎉 Welcome, {user.email}!
-  </h1>
+      <header className="p-4 bg-teal dark:bg-teal-800 shadow-lg flex justify-between items-center">
+  <div className="flex items-center gap-4">
+    <h1 className="text-2xl font-bold text-off-white dark:text-teal-100">
+      🎉 Welcome, {user.email}!
+    </h1>
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full bg-white/20 hover:bg-white/30"
+    >
+      {isDark ? '🌙' : '☀️'}
+    </button>
+  </div>
   <button
     onClick={() => signOut(auth)}
-    className="bg-coral hover:bg-sunshine text-off-white px-4 py-2 rounded 
-               transition-colors duration-200"
+    className="bg-coral dark:bg-coral-600 hover:bg-sunshine text-off-white px-4 py-2 rounded transition-colors duration-200"
   >
     Sign Out
   </button>
@@ -140,7 +151,7 @@ export default function App() {
         
         <div className="mt-8 w-full max-w-md">
           <h2 className="text-xl font-bold mb-2">Recent Activities</h2>
-          <div className="bg-white p-4 rounded-lg shadow-inner max-h-60 overflow-y-auto">
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-inner max-h-60 overflow-y-auto">
             {savedActivities.length > 0 ? (
               savedActivities.map((item, index) => (
                 <div key={index} className="py-2 border-b">
