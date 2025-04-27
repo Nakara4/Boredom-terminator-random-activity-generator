@@ -4,6 +4,7 @@ import { auth } from "./firebase";
 import Auth from "./components/Auth";
 import Button from "./components/Button";
 import ActivityCard from "./components/ActivityCard";
+import Loading from "./components/Loading";
 
 export default function App() {
  
@@ -90,17 +91,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       
-      <header className="p-4 bg-white shadow flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">
-          Welcome, {user.email}!
-        </h1>
-        <button
-          onClick={() => signOut(auth)}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-        >
-          Sign Out
-        </button>
-      </header>
+
+<header className="p-4 bg-teal shadow-lg flex justify-between items-center">
+  <h1 className="text-2xl font-bold text-off-white">
+    🎉 Welcome, {user.email}!
+  </h1>
+  <button
+    onClick={() => signOut(auth)}
+    className="bg-coral hover:bg-sunshine text-off-white px-4 py-2 rounded 
+               transition-colors duration-200"
+  >
+    Sign Out
+  </button>
+</header>
 
       
       <div className="flex flex-col items-center justify-center p-4">
@@ -121,7 +124,7 @@ export default function App() {
         </div>
 
         
-        {loading && <p className="mt-4 text-gray-600">Loading...</p>}
+        {loading && <Loading />}
         {error && (
           <p className="mt-4 text-yellow-600">
             <span className="font-bold">Note:</span> {error}
