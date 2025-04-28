@@ -93,75 +93,82 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      
-
-      <header className="p-4 bg-teal dark:bg-teal-800 shadow-lg flex justify-between items-center">
-  <div className="flex items-center gap-4">
-    <h1 className="text-2xl font-bold text-off-white dark:text-teal-100">
-      🎉 Welcome, {user.email}!
-    </h1>
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full bg-white/20 hover:bg-white/30"
-    >
-      {isDark ? '🌙' : '☀️'}
-    </button>
-  </div>
-  <button
-    onClick={() => signOut(auth)}
-    className="bg-coral dark:bg-coral-600 hover:bg-sunshine text-off-white px-4 py-2 rounded transition-colors duration-200"
-  >
-    Sign Out
-  </button>
-</header>
-
-      
-      <div className="flex flex-col items-center justify-center p-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">Boredom Terminator</h1>
-        
-        <div className="flex gap-4 mb-4">
-          <Button onClick={fetchActivity} disabled={loading}>
-            {loading ? "Loading..." : "Generate New"}
-          </Button>
-          {activity && (
-            <button
-              onClick={fetchActivity}
-              className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full"
-            >
-              🔄 Refresh
-            </button>
-          )}
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-2 sm:p-4">
+      <header className="p-4 bg-teal dark:bg-teal-800 shadow-lg">
+        {/* Existing header content */}
+        <div className="flex items-center gap-4">
+          <h1 className="text-2xl font-bold text-off-white dark:text-teal-100">
+            🎉 Welcome, {user.email}!
+          </h1>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-white/20 hover:bg-white/30"
+          >
+            {isDark ? '🌙' : '☀️'}
+          </button>
         </div>
+        <button
+          onClick={() => signOut(auth)}
+          className="bg-coral dark:bg-coral-600 hover:bg-sunshine text-off-white px-4 py-2 rounded transition-colors duration-200"
+        >
+          Sign Out
+        </button>
+      </header>
 
-        
-        {loading && <Loading />}
-        {error && (
-          <p className="mt-4 text-yellow-600">
-            <span className="font-bold">Note:</span> {error}
-          </p>
-        )}
-        {activity && !loading && (
-          <ActivityCard activity={activity.activity} type={activity.type} />
-        )}
-        {!activity && !loading && !error && (
-          <p className="mt-4 text-gray-600">Tap the button to get started!</p>
-        )}
+      {/* New wrapper div */}
+      <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-8">
+        <div className="flex flex-col items-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center w-full">
+            Boredom Terminator
+          </h1>
 
-        
-        <div className="mt-8 w-full max-w-md">
-          <h2 className="text-xl font-bold mb-2">Recent Activities</h2>
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-inner max-h-60 overflow-y-auto">
-            {savedActivities.length > 0 ? (
-              savedActivities.map((item, index) => (
-                <div key={index} className="py-2 border-b">
-                  <p className="font-medium">{item.activity}</p>
-                  <p className="text-sm text-gray-500">{item.type}</p>
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-500">No history yet</p>
+          {/* Activity generation section */}
+          <div className="w-full flex flex-col items-center">
+            <div className="flex gap-4 mb-4">
+              <Button onClick={fetchActivity} disabled={loading}>
+                {loading ? "Loading..." : "Generate New"}
+              </Button>
+              {activity && (
+                <button
+                  onClick={fetchActivity}
+                  className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full"
+                >
+                  🔄 Refresh
+                </button>
+              )}
+            </div>
+
+            {loading && <Loading />}
+            {error && (
+              <p className="mt-4 text-yellow-600">
+                <span className="font-bold">Note:</span> {error}
+              </p>
             )}
+            {activity && !loading && (
+              <ActivityCard activity={activity.activity} type={activity.type} />
+            )}
+            {!activity && !loading && !error && (
+              <p className="mt-4 text-gray-600">Tap the button to get started!</p>
+            )}
+
+            {/* Recent activities list */}
+            <div className="mt-8 w-full">
+              <h2 className="text-xl font-bold mb-2 dark:text-teal-200 text-center">
+                Recent Activities
+              </h2>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-inner max-h-60 overflow-y-auto">
+                {savedActivities.length > 0 ? (
+                  savedActivities.map((item, index) => (
+                    <div key={index} className="py-2 border-b">
+                      <p className="font-medium">{item.activity}</p>
+                      <p className="text-sm text-gray-500">{item.type}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-500">No history yet</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
