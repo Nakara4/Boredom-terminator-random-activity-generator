@@ -1,12 +1,51 @@
-# React + Vite
+# 🎉 Boredom Terminator - Random Activity Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![React](https://img.shields.io/badge/React-18.2-blue)
+![Firebase](https://img.shields.io/badge/Firebase-9.22-orange)
 
-Currently, two official plugins are available:
+Turn idle moments into creative opportunities with one tap! A React-based app that suggests random activities to beat boredom.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- ⚡ Instant activity generation with one click
+- 📱 Mobile-optimized interface
+- 🔒 Firebase authentication (Google/Email)
+- 🌓 Dark/Light mode toggle
+- 📚 Recent activity history (last 10 items)
+- 💾 Local storage fallback when API is unavailable
+- 📋 Copy activity to clipboard
+- 🔄 Refresh current activity
+
+## 🚀 Live Demo
+
+Experience the app:  
+[Firebase Hosting]() | [Vercel Deployment](https://boredom-terminator-random-activity-generator.vercel.app/)
+
+## 🛠️ Tech Stack
+
+| Category       | Technologies                          |
+|----------------|---------------------------------------|
+| Frontend       | React, Vite                           |
+| Styling        | Tailwind CSS                          |
+| Authentication | Firebase Authentication               |
+| Hosting        | Firebase Hosting, Vercel              |
+| Data Source    | Bored API + Local db.json Fallback    |
+
+## 🚨 Prerequisites
+
+- Node.js (v18+)
+- npm (v9+)
+- Firebase project setup
+
+## 📦 Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/Nakara4/boredom-terminator.git
+cd boredom-terminator
+
+## License  
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
